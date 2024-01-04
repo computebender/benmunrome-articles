@@ -1,0 +1,20 @@
+{
+    "articles": [
+        {
+            "id": "168c26b7-46dd-49a2-aa3a-2afbe5e5cdb0",
+            "title": "Test Article 1",
+            "url": "/assets/article/test/test.md",
+            "date": "2023-01-01",
+            "summary": "An article created to test the article system. I'm adding some big long description here to see how the page reacts to it!",
+            "slug": "test-article"
+        },
+        {
+            "id": "4e7cc743-6cab-452e-b462-3d521f2f4afb",
+            "title": "Test Article 2",
+            "url": "/assets/article/test2/test2.md",
+            "date": "2023-01-01",
+            "summary": "A second article created to test the article system.",
+            "slug": "test-article-2"
+        }
+    ]
+}
