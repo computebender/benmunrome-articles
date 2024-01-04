@@ -11,7 +11,7 @@
         {
             "id": "4e7cc743-6cab-452e-b462-3d521f2f4afb",
             "title": "Test Article 2",
-            "url": "/assets/article/test2/test2.md",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/test-article-2/test-article-2.md",
             "date": "2023-01-01",
             "summary": "A second article created to test the article system.",
             "slug": "test-article-2"
