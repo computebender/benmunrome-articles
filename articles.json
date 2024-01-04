@@ -3,7 +3,7 @@
         {
             "id": "168c26b7-46dd-49a2-aa3a-2afbe5e5cdb0",
             "title": "Test Article 1",
-            "url": "/assets/article/test/test.md",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/test-article-1/test-article-1.md",
             "date": "2023-01-01",
             "summary": "An article created to test the article system. I'm adding some big long description here to see how the page reacts to it!",
             "slug": "test-article"
