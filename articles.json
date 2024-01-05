@@ -15,6 +15,14 @@
             "date": "2023-01-01",
             "summary": "A second article created to test the article system.",
             "slug": "test-article-2"
+        },
+        {
+            "id": "69f0667a-f6e9-48bf-a9d4-f82e9a535b29",
+            "title": "Website CI/CD with Docker and GitHub Actions",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-cicd-docker/benmunrome-cicd-docker.md",
+            "date": "2024-01-05T01:29:33.024Z",
+            "summary": "How I set up an automated CI/CD pipeline for my website using Docker and GitHub Actions.",
+            "slug": "cicd-with-docker-and-github-actions"
         }
     ]
 }
