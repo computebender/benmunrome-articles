@@ -6,7 +6,7 @@ This left me with running the application on a VPS. While significantly more com
 
 # Setting up the CI/CD pipeline
 
-Even though I'd never be able to reach the ease of use of Vercel, I knew I wanted the process to be as automated as possible. I had \_\_ main goals for the pipeline:
+Even though I'd never be able to reach the ease of use of Vercel, I knew I wanted the process to be as automated as possible. I had five main goals for the pipeline:
 
 1. Update the deployed site any time a change is made on the main branch.
 2. Build the Angular application using the build configuration for the optimizations it provided.
