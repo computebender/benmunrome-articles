@@ -1,24 +1,26 @@
-Angular 17 using SSR (server-side rendering) was the framework of choice for this project. It provides some crucial features needed for a content-heavy website that I'd like to ensure is searchable by search engines. For all its excelent features, it does require a more complicated deployment setup. For a traditional Single-Page Application, a fully hosted solution wouldn't generally be needed. There's static hosting options like GitHub Pages that simply return the static application files to the user. Since SSR is being used, this isn't possible as the server needs to first render pages before delivering them to the user. This left me with a few options: using short-life cloud functions, or running a long-lived server on a VPS.
+When I was picking a framework for my website, Angular 17 stood out because of its server-side rendering (SSR) features. It's perfect for sites loaded with content, especially when you want them easily found by search engines. Angular with SSR is great, but it does make the deployment a bit more complex than usual. Normally, for a simple Single-Page Application, you don't need much. Something like GitHub Pages does the job, serving up static files. But with SSR, you can't just serve static files since the server has to render pages first.
 
-I initially setup the project to use Vercel to automatically build and deploy the project. This worked well initially, but wasnt entirtely designed to be used in this way. I ran into difficult to solve issues debugging the deployment. While these were surmountable, I wasn't pleased with the overall experience. The service wasn't intially built for SSR aplications, and required non-documented configurations to work. As it was a managed platform, you had to play by their rules, within the features of their platform. Perhaps when they more officially support this type of deployment I'll give it another try.
+This left me with two options: using short-life cloud functions or running a long-lived server on a VPS.
 
-This left me with running the application on a VPS. While significantly more complicated to setup, it provided full control of all steps of the process, plus who doesn't like a challenge?
+I first tried using Vercel for automatic builds and deployment. It was easy to get started, but I knew going in it wasn't fully geared for SSR. Debugging deployment issues turned into a bit of a headache. While I did manage to get around (some) of these problems, the whole experience left me wanting something better. Vercel, not being initially designed for SSR, needed some tweaks and workarounds. Since it's a managed platform, you're kind of stuck with their rules and features. I would consider going back to Vercel if they start supporting SSR more directly.
 
-# Setting up the CI/CD pipeline
+So, I ended up choosing to run my app on a VPS. It's definitely more work to set up, but you get total control, and honestly, it's a bit of a fun challenge.
 
-Even though I'd never be able to reach the ease of use of Vercel, I knew I wanted the process to be as automated as possible. I had five main goals for the pipeline:
+## Setting up the CI/CD pipeline
 
-1. Update the deployed site any time a change is made on the main branch.
-2. Build the Angular application using the build configuration for the optimizations it provided.
-3. Deploy the new version to the server, replacing the existing deployment.
-4. Not have to touch anything after initial setup to make this happen.
-5. Must be hosted with HTTPS.
+I wanted my deployment process to be super automated. My goals were:
 
-I settled on using Docker and Docker Compose running on a Digital Ocean Droplet. Using Docker meant if it ran on my machine, it was going to run on the server. No other dependencies except Docker was required on the server, regardless of application dependencies, this will never change. Requiring HTTPS meant I needed a way to run an additonal reverse proxy service to handle incoming requests. To simplify this I settle on running a Caddy server. Caddy is an great reverse proxy that automates the process of fetching and renuing certificates using Let's Encrypt. To bring it all together Docker Compose defines the two services, and configures a network that allows them to communicate, isolated from the web.
+1. Automatically update the site when I change anything in the main branch.
+2. Build the Angular app with all the optimizations of a production configuration.
+3. Deploy the new version, replacing the old one on the server.
+4. Set and forget, no fiddling around after the first setup.
+5. Make sure the site is secure with HTTPS.
 
-## Building the Docker Image
+I decided to go with Docker and Docker Compose on a Digital Ocean Droplet. The major benefit of Docker is that if it works on my machine, it's going to work on the server. The server just needs Docker, no matter what the app needs. And for HTTPS, I picked Caddy as my reverse proxy. Caddy makes setting up HTTPS a breeze, handling certificates with Let's Encrypt automatically. With Docker Compose, I could easily link up everything, keeping the services talking to each other but away from the rest of the web.
 
-Docker images are described by a Dockerfile. This file takes a base image, a series of steps to install dependencies, and run the application. The process is split into two stages, a build stage and a deploy stage. This allows the final image to contain only what is necessary for running, and not all build dependencies, reducing its size. The Dockerfile is rather small for all the convenience it provides:
+### Building the Docker Image
+
+The Dockerfile is the blueprint for my Docker image. It's split into two parts: building and deploying. This way, the final image is lean, packing only what's needed to run the app.
 
 ```docker
 FROM node:20-alpine as build
@@ -41,17 +43,17 @@ CMD ["npm", "run", "serve:ssr:benmunrome"]
 
 The latest [Dockerfile](https://github.com/computebender/benmunrome/blob/main/Dockerfile) is available on GitHub.
 
-### Build stage
+#### Build stage
 
-The first half of the Dockerfile describes the build stage. This stage is based on the node:20-alpine base image. This image provides the v20 Long-Term Support version of node and the associated npm version in small package. The `package.json` and `package-lock.json` files that include build scripts and a list of dependencies are copied to the build container. All dependencies are installed, the app source is copied into the build container, and the application is built.
+The build stage starts with a node:20-alpine base image, it's a small package but has everything I need. It copies over the package.json and package-lock.json, installs all dependencies, then pulls in the app source and builds it.
 
-### Run stage
+#### Run stage
 
-The second half of the Dockerfile describes the run stage, which is also based on the same image. This stage copies only the required files to run the application. All other dependencies and source code are not needed, therefore are not copied. This stage starts the application, which begins awaiting requests on port 4000.
+The run stage is also on node:20-alpine, but it only takes what's necessary to run the app from the build stage. It skips all the extra stuff, cutting down on size. Then it gets the app up and running, starting the node service that runs on port 4000.
 
-## Caddy
+### Caddy
 
-Caddy is a web server with automatic HTTPS. Compared to other reverse proxy solutions, this is by far the easiest for a solo developer to use. All that is required to configure an HTTPS secured reverse proxy to the application is a single configuration file,
+Caddy's my choice for a web server. It's super user-friendly for solo devs like me. A single config file is all it takes to set up a secure reverse proxy. It really can't get simpler.
 
 ```
 benmunro.me
@@ -61,11 +63,9 @@ reverse_proxy app:4000
 
 The latest [Caddyfile](https://github.com/computebender/benmunrome/blob/main/Caddyfile) is available on GitHub.
 
-It really can't get simpler.
+### Docker Compose
 
-## Docker Compose
-
-Bringing it all together is Docker Compose. It defines how to run the two images as services. It also defines a network to connect the services, and Docker volumes to persist Caddy data.
+Docker Compose is the glue that holds it all together. It defines the services, sets up a network for them, and makes sure Caddy's data is persisted. It targets the latest app version from GitHub Container Registry as well as the newest Caddy from DockerHub. The setup also makes sure Caddy is ready to handle incoming web traffic.
 
 ```yaml
 version: "3.8"
@@ -100,11 +100,9 @@ volumes:
 
 The latest [docker-compose.yml](https://github.com/computebender/benmunrome/blob/main/docker-compose.yml) is available on GitHub.
 
-The latest version of the application is referencved from the GitHub Container Registry and the latest version of Caddy is used. The configuration for the Caddy service also exposes ports for incoming requests. Caddy proxies incoming requests on port 80/443 over the Docker network to the server running in the app service.
+## Automating It!
 
-# Automating It!
-
-While this configuration certainly makes it easier to deploy, I'm lazy and want it to happen automatically. For this I used GitHub Actions. GitHub Actions are yaml files that contain the workflow required to build, publish, and deploy an application. Triggers can also be defined that start the workflow automatically on different actions within GitHub, in this case on any merge to the `main` branch.
+I'm all about making things easy, so I used GitHub Actions for automation. These are YAML files that lay out the steps to build, publish, and deploy the app. They're triggered by any merges to the main branch. The actions check out the latest code, build and publish a Docker image, and then update the services on the Digital Ocean Droplet with the newest versions.
 
 ```yaml
 name: Build and Deploy
@@ -151,11 +149,10 @@ jobs:
             cd /var/www/benmunrome
             git pull origin main
             docker compose down
-            docker compose up --pull -d
+            docker compose pull
+            docker compose up -d
 ```
 
-The workflow files first checks out the latest code from the repository. It then logins in to my GitHub container registry using secrets provided by the running environment. A Docker image is build and published according to the Dockerfile. The final stage connects to the Digital Ocean Droplet, pulls the latest configuration, are restarts the services using the latest version of each.
+## Key Takeaways
 
-# Conclusion
-
-While this setup is certainly more effort than simply connecting to Vercel, it gives me full control over the entire process. I can customize it in pretty much any way I'd like. In the end I end up with a similar result, upon any change my website is automatically re-deployed to a secure server without any interaction on my part. Mission complete!
+Sure, this method takes more hands-on effort than just hooking into Vercel, but the control it gives is worth it. I can tweak and adjust to my heart's content. The end result is a self-updating, secure site that takes care of itself after any changes I make. Mission complete!
