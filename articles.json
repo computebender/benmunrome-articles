@@ -35,7 +35,7 @@
         {
             "id": "cd301f80-b10a-4666-bdf1-6196b6850dc5",
             "title": "Parallax Effect in Angular 17 SSR",
-            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-tailwind/benmunrome-tailwind.md",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-parallax-effect/benmunrome-parallax-effect.md",
             "date": "2024-01-07T18:24:28.319Z",
             "summary": "A deep dive into the technical process of implementing a subtle parallax effect in Angular 17.",
             "slug": "angular-17-parallax-implementation"
