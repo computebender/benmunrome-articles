@@ -29,8 +29,16 @@
             "title": "Web Design with Tailwind CSS",
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-tailwind/benmunrome-tailwind.md",
             "date": "2024-01-07T17:31:28.431Z",
-            "summary": "Exploring the integration and use of Tailwind CSS in my website",
+            "summary": "Exploring the integration and use of Tailwind CSS in my website.",
             "slug": "tailwind-css-personal-site-integration"
+        },
+        {
+            "id": "cd301f80-b10a-4666-bdf1-6196b6850dc5",
+            "title": "Parallax Effect in Angular 17 SSR",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-tailwind/benmunrome-tailwind.md",
+            "date": "2024-01-07T18:24:28.319Z",
+            "summary": "A deep dive into the technical process of implementing a subtle parallax effect in Angular 17.",
+            "slug": "angular-17-parallax-implementation"
         }
     ]
 }
