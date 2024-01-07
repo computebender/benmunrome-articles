@@ -35,8 +35,10 @@ export class ParallaxService {
 
 Performance was a key concern. Using the Firefox profiler, I confirmed that the parallax implementation did not affect the site's 60 fps target. The browser was able to consistently deliver a frame every 16ms-17ms.
 
+![Screenshot from 2024-01-06 16-20-36](https://github.com/computebender/benmunrome-articles/assets/8071151/c14eed66-da05-4c60-820b-e8ac24e1c8bb)
 _Parallax effect disabled._
 
+![Screenshot from 2024-01-06 16-21-35](https://github.com/computebender/benmunrome-articles/assets/8071151/e56ff03b-091b-4ca0-8196-a2af737d84ca)
 _Parallax effect enabled._
 
 ## Complete Implementation
