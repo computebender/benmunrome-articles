@@ -6,7 +6,8 @@
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/test-article-1/test-article-1.md",
             "date": "2023-01-01",
             "summary": "An article created to test the article system. I'm adding some big long description here to see how the page reacts to it!",
-            "slug": "test-article"
+            "slug": "test-article",
+            "isActive": false
         },
         {
             "id": "4e7cc743-6cab-452e-b462-3d521f2f4afb",
@@ -14,7 +15,8 @@
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/test-article-2/test-article-2.md",
             "date": "2023-01-01",
             "summary": "A second article created to test the article system.",
-            "slug": "test-article-2"
+            "slug": "test-article-2",
+            "isActive": false
         },
         {
             "id": "69f0667a-f6e9-48bf-a9d4-f82e9a535b29",
@@ -22,7 +24,8 @@
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-cicd-docker/benmunrome-cicd-docker.md",
             "date": "2024-01-05T01:29:33.024Z",
             "summary": "How I set up an automated CI/CD pipeline for my website using Docker and GitHub Actions.",
-            "slug": "cicd-with-docker-and-github-actions"
+            "slug": "cicd-with-docker-and-github-actions",
+            "isActive": true
         },
         {
             "id": "17187d19-e119-4647-8dd3-1aee88ee320f",
@@ -30,7 +33,8 @@
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-tailwind/benmunrome-tailwind.md",
             "date": "2024-01-07T17:31:28.431Z",
             "summary": "Exploring the integration and use of Tailwind CSS in my website.",
-            "slug": "tailwind-css-personal-site-integration"
+            "slug": "tailwind-css-personal-site-integration",
+            "isActive": true
         },
         {
             "id": "cd301f80-b10a-4666-bdf1-6196b6850dc5",
@@ -38,7 +42,8 @@
             "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/benmunrome-parallax-effect/benmunrome-parallax-effect.md",
             "date": "2024-01-07T18:24:28.319Z",
             "summary": "A deep dive into the technical process of implementing a subtle parallax effect in Angular 17.",
-            "slug": "angular-17-parallax-implementation"
+            "slug": "angular-17-parallax-implementation",
+            "isActive": true
         }
     ]
 }
