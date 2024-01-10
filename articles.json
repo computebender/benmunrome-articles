@@ -48,6 +48,5 @@
             "isActive": true,
             "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-parallax-effect/angular_parallax.png?raw=true"
         }
-    ],
-    "featuredArticles": ["cd301f80-b10a-4666-bdf1-6196b6850dc5", "17187d19-e119-4647-8dd3-1aee88ee320f", "69f0667a-f6e9-48bf-a9d4-f82e9a535b29"]
+    ]
 }
