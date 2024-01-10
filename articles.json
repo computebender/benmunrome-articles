@@ -36,7 +36,7 @@
             "summary": "Exploring the integration and use of Tailwind CSS in my website.",
             "slug": "tailwind-css-personal-site-integration",
             "isActive": true,
-            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-tailwind/tailwind.png"
+            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-tailwind/tailwind.png?raw=true"
         },
         {
             "id": "cd301f80-b10a-4666-bdf1-6196b6850dc5",
@@ -46,7 +46,7 @@
             "summary": "A deep dive into the technical process of implementing a subtle parallax effect in Angular 17.",
             "slug": "angular-17-parallax-implementation",
             "isActive": true,
-            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-parallax-effect/angular_parallax.png"
+            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-parallax-effect/angular_parallax.png?raw=true"
         }
     ]
 }
