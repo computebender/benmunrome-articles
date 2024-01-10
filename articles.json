@@ -25,7 +25,8 @@
             "date": "2024-01-05T01:29:33.024Z",
             "summary": "How I set up an automated CI/CD pipeline for my website using Docker and GitHub Actions.",
             "slug": "cicd-with-docker-and-github-actions",
-            "isActive": true
+            "isActive": true,
+            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-cicd-docker/docker_github.png?raw=true"
         },
         {
             "id": "17187d19-e119-4647-8dd3-1aee88ee320f",
@@ -34,7 +35,8 @@
             "date": "2024-01-07T17:31:28.431Z",
             "summary": "Exploring the integration and use of Tailwind CSS in my website.",
             "slug": "tailwind-css-personal-site-integration",
-            "isActive": true
+            "isActive": true,
+            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-tailwind/tailwind.png"
         },
         {
             "id": "cd301f80-b10a-4666-bdf1-6196b6850dc5",
@@ -43,7 +45,8 @@
             "date": "2024-01-07T18:24:28.319Z",
             "summary": "A deep dive into the technical process of implementing a subtle parallax effect in Angular 17.",
             "slug": "angular-17-parallax-implementation",
-            "isActive": true
+            "isActive": true,
+            "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-parallax-effect/angular_parallax.png"
         }
     ]
 }
