@@ -47,6 +47,16 @@
             "slug": "angular-17-parallax-implementation",
             "isActive": true,
             "coverImage": "https://github.com/computebender/benmunrome-articles/blob/bb81d5adb9d15c62aa820fe0755c6cdea593a584/benmunrome-parallax-effect/angular_parallax.png?raw=true"
+        },
+        {
+            "id": "5d77988a-4d8b-410d-822f-47aa49bf232e",
+            "title": "IoT Smart Garden Project",
+            "url": "https://raw.githubusercontent.com/computebender/benmunrome-articles/main/capstone-smart-garden/capstone-smart-garden.md",
+            "date": "2024-01-12T22:43:31.503Z",
+            "summary": "A capstone project for my Software Engineering degree, this project is a smart garden that automatically monitors and controls the environment.",
+            "slug": "iot-smart-garden-project",
+            "isActive": true,
+            "coverImage": "https://raw.githubusercontent.com/computebender/benmunrome-articles/3484779ce079262d29c001cf1d03dea6e2c883d9/capstone-smart-garden/icon.png"
         }
     ]
 }
