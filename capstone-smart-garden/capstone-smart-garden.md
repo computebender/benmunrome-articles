@@ -6,6 +6,8 @@ Our goal was to create an IoT-enabled smart gardening and farming system to supp
 
 The system comprised four main components: the sensor and control nodes (IoT devices deployed in the gardens), the cloud services that received, processed, analyzed, and stored data, a mobile application for user interaction with their devices, and a management console for provisioning new devices.
 
+![System architecture diagram](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/system_architecture.png "System architecture diagram.")
+
 ### IoT Edge Devices
 
 The sensor and control nodes deployed in gardens were based on the ESP32 microcontroller. The ESP32 supports Wi-Fi, enabling direct communication with our cloud services. I chose these microcontrollers because they are inexpensive, relatively power-efficient, and incorporate a large set of communication interfaces, analog, and digital GPIOs.
@@ -28,6 +30,10 @@ I opted to write the software for the IoT devices in C++ using the PlatformIO SD
 
 For the hardware aspect, I designed and 3D printed an enclosure to house our microcontroller and all its sensors. The design included a sloped roof and overlapping tiered sections to prevent leakage. It was segmented into three sections to allow for quicker iteration as the project progressed. A change in one sensor didn't necessitate a new enclosure, only the part to which it was attached. I also soldered a prototype board to facilitate the attachment of all components.
 
+![Sensor node circuit board](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/circuit_board.png "Circuit board that I soldered for the sensor node.")
+
+![3D printed sensor node enclosure](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/enclosure.png "3D printed enclosure for the sensor node.")
+
 ### Application Backend
 
 Given the system's scale, we early on decided to use Appwrite, a self-hosted backend-as-a-service solution. Appwrite offered a feature set similar to Firebase, but with full control over its deployment. This choice was primarily driven by the context of the school project; however, I would definitely recommend Firebase in other contexts. We primarily utilized APIs for authentication flows, database access, and cloud functions.
@@ -35,6 +41,8 @@ Given the system's scale, we early on decided to use Appwrite, a self-hosted bac
 #### Database Schema
 
 Our data model was straightforward, especially considering Appwrite abstracted permissions and user management away from the core data models. The main entities central to the entire system were Entities, Devices, and Gardens, with other entities supporting specific features like the automation engine and notifications.
+
+![Database schema](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/database_schema.png "The database schema supporting our system.")
 
 #### Deployment
 
@@ -44,6 +52,8 @@ The backend was deployed on a virtual private server using the Linode service. A
 
 I developed a management console that enabled the provisioning of new devices in the system. It provided an interface for creating, monitoring, updating, and deleting all devices connected to the system. It was also responsible for generating pairing QR codes, which could be read by a user’s mobile client to associate a device with their account. This application was built using Angular, NGRX, and Angular Material.
 
+![Management client](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/management_client.png "Angular application for managing and provisioning devices.")
+
 ### Mobile Client
 
 The mobile client for our system was built using Google's cross-platform Flutter development toolkit. We chose Flutter for several reasons: it allowed us to write a single codebase that could run on multiple platforms, including iOS, Android, web, and desktop; it provides a hot reload feature which sped up development cycles; and it offers a rich set of pre-designed widgets for building attractive and responsive UIs. While there are other tools like React Native offering similar benefits, Flutter's familiarity with the UI tools we had used in school meant that team members unfamiliar with web development technologies could be more comfortable.
@@ -51,6 +61,8 @@ The mobile client for our system was built using Google's cross-platform Flutter
 The mobile app featured several key functions for interacting with the garden. It provided a map overview of all a user's gardens, using the flutter_map library and OpenStreetMap tiles to display pins representing different sensor and control nodes, updating according to the state of each node. It also enabled real-time monitoring and control of nodes and offered garden management tools such as adding devices, sharing a garden, and changing node configurations.
 
 My primary contributions to the client app included developing parts of the map interface and the real-time control and monitoring screen. Our backend system provided a real-time API that streamed the latest sensor values to the app. Devices that could be controlled featured toggles or sliders for operation.
+
+![](https://raw.githubusercontent.com/computebender/benmunrome-articles/a69111118d8292d7ab91f47b17a0f06f01206a25/capstone-smart-garden/mobile_client.png "Device control screen of the mobile client.")
 
 ## Conclusion
 
