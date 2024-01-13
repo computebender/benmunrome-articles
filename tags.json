@@ -11,9 +11,44 @@
             "colour": "red"
         },
         {
+            "id": "efa50dc3-b3ed-49d5-ad0f-7c2ae45dcb16",
+            "name": "TailwindCSS",
+            "colour": "red"
+        },
+        {
             "id": "7d8fda19-fe51-440a-a603-591f7d843899",
             "name": "Docker",
             "colour": "blue"
+        },
+        {
+            "id": "d85ee45a-bb13-4856-abca-e9a5790ee272",
+            "name": "benmunro.me",
+            "colour": "purple"
+        },
+        {
+            "id": "0231d799-a677-4179-8d08-5c4cb10710c5",
+            "name": "DevOps",
+            "colour": "blue"
+        },
+        {
+            "id": "ccc05106-1abd-4cb3-ba7d-62e68a1ab441",
+            "name": "Web Development",
+            "colour": "red"
+        },
+        {
+            "id": "d90a502a-d10c-4148-8e96-ec3a29c5066e",
+            "name": "Mobile Development",
+            "colour": "red"
+        },
+        {
+            "id": "5d4a9d65-8957-4d10-b12f-e90f8e6f942f",
+            "name": "3D Printing",
+            "colour": "green"
+        },
+        {
+            "id": "433106fa-f562-45ea-9a15-1e5e1c303217",
+            "name": "Electronics",
+            "colour": "yellow"
         }
     ]
 }
