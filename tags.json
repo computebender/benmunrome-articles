@@ -1,0 +1,19 @@
+{
+    "tags": [
+        {
+            "id": "e3879a48-76e9-472c-a1aa-57b3c50724a2",
+            "name": "Angular",
+            "colour": "red"
+        },
+        {
+            "id": "47f205af-420b-496e-a6d2-b383206221a0",
+            "name": "Flutter",
+            "colour": "red"
+        },
+        {
+            "id": "7d8fda19-fe51-440a-a603-591f7d843899",
+            "name": "Docker",
+            "colour": "blue"
+        }
+    ]
+}
